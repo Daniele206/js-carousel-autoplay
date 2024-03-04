@@ -17,6 +17,20 @@ let counter = 0;
 const imgCollection = document.getElementsByClassName('img');
 const imgPreviewCollection = document.getElementsByClassName('img-preview');
 
+// function
+function downScroll(){
+  imgCollection[counter].classList.add('hide');
+  imgPreviewCollection[counter].classList.add('shadow');
+  imgPreviewCollection[counter].classList.remove('selected');
+  counter++
+  if (counter > (imgCollection.length - 1)){
+    counter = 0;
+  }
+  imgCollection[counter].classList.remove('hide');
+  imgPreviewCollection[counter].classList.remove('shadow');
+  imgPreviewCollection[counter].classList.add('selected');
+}
+
 // code
 
 for(let i = 0; i < listImg.length; i++){
@@ -45,14 +59,7 @@ topBtn.addEventListener('click', function(){
 });
 
 bottomBtn.addEventListener('click', function(){
-    imgCollection[counter].classList.add('hide');
-    imgPreviewCollection[counter].classList.add('shadow');
-    imgPreviewCollection[counter].classList.remove('selected');
-    counter++
-    if (counter > (imgCollection.length - 1)){
-      counter = 0;
-    }
-    imgCollection[counter].classList.remove('hide');
-    imgPreviewCollection[counter].classList.remove('shadow');
-    imgPreviewCollection[counter].classList.add('selected');
+  downScroll();
 });
+
+const autoScrol = setInterval(downScroll, 3000);

@@ -12,7 +12,7 @@ const fullCarousell = document.querySelector('.full-carousell');
 const imgContainer = document.querySelector('.img-container');
 const topBtn = document.querySelector('.top');
 const bottomBtn = document.querySelector('.bottom');
-const autoScrol = setInterval(downScroll, 1000);
+let autoScrol;
 let counter = 0;
 
 // array-className
@@ -27,6 +27,19 @@ function downScroll(){
   counter++
   if (counter > (imgCollection.length - 1)){
     counter = 0;
+  }
+  imgCollection[counter].classList.remove('hide');
+  imgPreviewCollection[counter].classList.remove('shadow');
+  imgPreviewCollection[counter].classList.add('selected');
+};
+
+function upScroll(){
+  imgCollection[counter].classList.add('hide');
+  imgPreviewCollection[counter].classList.add('shadow');
+  imgPreviewCollection[counter].classList.remove('selected');
+  counter--
+  if (counter < 0){
+    counter = (imgCollection.length - 1);
   }
   imgCollection[counter].classList.remove('hide');
   imgPreviewCollection[counter].classList.remove('shadow');
@@ -48,26 +61,20 @@ imgPreviewCollection[counter].classList.add('selected');
 
 
 topBtn.addEventListener('click', function(){
-    imgCollection[counter].classList.add('hide');
-    imgPreviewCollection[counter].classList.add('shadow');
-    imgPreviewCollection[counter].classList.remove('selected');
-    counter--
-    if (counter < 0){
-      counter = (imgCollection.length - 1);
-    }
-    imgCollection[counter].classList.remove('hide');
-    imgPreviewCollection[counter].classList.remove('shadow');
-    imgPreviewCollection[counter].classList.add('selected');
+  upScroll()
 });
 
 bottomBtn.addEventListener('click', function(){
   downScroll();
 });
 
+autoScrol = setInterval(downScroll, 3000);
+
 fullCarousell.addEventListener('mouseover', function(){
   clearInterval(autoScrol);
-})
+});
 
 fullCarousell.addEventListener('mouseout', function(){
-})
+  autoScrol = setInterval(downScroll, 3000);
+});
 

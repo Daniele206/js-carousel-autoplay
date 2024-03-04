@@ -12,6 +12,7 @@ const fullCarousell = document.querySelector('.full-carousell');
 const imgContainer = document.querySelector('.img-container');
 const topBtn = document.querySelector('.top');
 const bottomBtn = document.querySelector('.bottom');
+const autoScrol = setInterval(downScroll, 1000);
 let counter = 0;
 
 // array-className
@@ -63,6 +64,10 @@ bottomBtn.addEventListener('click', function(){
   downScroll();
 });
 
+fullCarousell.addEventListener('mouseover', function(){
+  clearInterval(autoScrol);
+})
 
+fullCarousell.addEventListener('mouseout', function(){
+})
 
-const autoScrol = setInterval(downScroll, 3000);

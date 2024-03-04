@@ -13,10 +13,17 @@
   justify-content: center;
 }
 
+.full-carousell{
+  height: 50%;
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .carousel{
   position: relative;
-  height: 50%;
-  width: 50%;
+  height: 100%;
+  width: 80%;
 }
 
 .img-container{
@@ -64,8 +71,8 @@
 }
 
 .preview{
-  height: 50%;
-  width: 10%;
+  height: 100%;
+  width: 20%;
   background-color: black;
 }
 

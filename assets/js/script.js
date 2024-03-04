@@ -8,6 +8,7 @@ const listImg = [
 ];
 
 // variables
+const fullCarousell = document.querySelector('.full-carousell');
 const imgContainer = document.querySelector('.img-container');
 const topBtn = document.querySelector('.top');
 const bottomBtn = document.querySelector('.bottom');
@@ -61,5 +62,7 @@ topBtn.addEventListener('click', function(){
 bottomBtn.addEventListener('click', function(){
   downScroll();
 });
+
+
 
 const autoScrol = setInterval(downScroll, 3000);

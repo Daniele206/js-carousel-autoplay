@@ -60,21 +60,17 @@ imgPreviewCollection[counter].classList.remove('shadow');
 imgPreviewCollection[counter].classList.add('selected');
 
 
-topBtn.addEventListener('click', function(){
-  upScroll()
-});
+topBtn.addEventListener('click', upScroll);
 
-bottomBtn.addEventListener('click', function(){
-  downScroll();
-});
+bottomBtn.addEventListener('click', downScroll);
 
 autoScrol = setInterval(downScroll, 3000);
 
-fullCarousell.addEventListener('mouseover', function(){
+fullCarousell.addEventListener('mouseenter', function(){
   clearInterval(autoScrol);
 });
 
-fullCarousell.addEventListener('mouseout', function(){
+fullCarousell.addEventListener('mouseleave', function(){
   autoScrol = setInterval(downScroll, 3000);
 });
 
